@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS15-16 Search System</title>
+    <link rel="icon" href="http://goit.ua/wp-content/themes/goit/images/favicon.ico" type="image/x-icon"/>
+    <script src="js/jquery-1.12.2.min.js" charset="utf-8"></script>
+    <script src="js/microTemplates.js" charset="utf-8"></script>
+    <script src="js/script.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+  <a href="index.html"><img class="logo" src="img/logo.png" width="500" height="100" alt="Evil search"/></a>
+    <form action="index.html" class="search search--main">
+      <input type="text" name="searchQuery" id="searchQuery" placeholder="request">
+      <input type="submit" value="Search now" id="searchButton">
+    </form>
+    <script type="text/template" id="content">
+      <% for (i = 0; i < data.length; i++) { %>
+        <div class="result">
+          <p class="title">
+            <a href="<%= data[i].link %>" class="link" target="blank">
+              <%= data[i].htmlTitle %>
+            </a>
+          </p>
+          <p class="linkInfo"><%= data[i].htmlFormattedUrl %></p>
+          <p class="content">
+            <%= data[i].htmlSnippet %>
+          </p>
+        </div>
+        <% }; %>
+      </script>
+      <div class="content"></div>
+  </div>
+</body>
+
+</html>
